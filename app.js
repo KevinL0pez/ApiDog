@@ -1,17 +1,21 @@
-const API_URL = 'https://dog.ceo/api/breeds/image/random'
+const API_URL = 'https://dog.ceo/api/breeds/image'
 
 const xhr = new XMLHttpRequest()
 const HTMLResponse = document.querySelector("#cards")
-const tpl =document.createDocumentFragment()
+const tpl = document.createDocumentFragment('ul')
 
-fetch(`${API_URL}`)
+fetch(`${API_URL}/random`)
     .then(response => response.json())
-    .then((dog) => {
-        dogs.forEach(dog => {
-            let elem = document.createElement('li')
-            elem.appendChild(document.createTextNode(`<li>${dogs.message} ${dogs.status}</li>`))
+    .then((random) => {
+        random.forEach((dogs) => {
+            let elem = document.createElement("li")
+            elem.appendChild(
+                document.createTextNode(`<li>${dogs.message} ${dogs.status}</li>`)
+            )
+            ul.appendChild(elem)
         });
-        tpl.appendChild(elem)
+
+        HTMLResponse.appendChild(ul)
     })
     
     /*const tpl = dogs.map(dogs = )
