@@ -6,11 +6,16 @@ const tpl =document.createDocumentFragment()
 
 fetch(`${API_URL}`)
     .then(response => response.json())
-    .then((dogs) => {
-        const tpl = dogs.map(dogs = `<li>${dogs.message} ${dogs.status}</li>`)
-        HTMLResponse.innerHTML = `<ul>${tpl}</ul>`
+    .then((dog) => {
+        dogs.forEach(dog => {
+            let elem = document.createElement('li')
+            elem.appendChild(document.createTextNode(`<li>${dogs.message} ${dogs.status}</li>`))
+        });
+        tpl.appendChild(elem)
     })
-
+    
+    /*const tpl = dogs.map(dogs = )
+    HTMLResponse.innerHTML = `<ul>${tpl}</ul>`*/
 /**
  * 
  function onRequestHandler() {
