@@ -10,7 +10,7 @@ fetch(`${API_URL}/random`)
         random.forEach((dogs) => {
             let elem = document.createElement("li")
             elem.appendChild(
-                document.createTextNode(`<li>${dogs.message} ${dogs.status}</li>`)
+                document.createTextNode(`${dogs.message} ${dogs.status}`)
             )
             ul.appendChild(elem)
         });
